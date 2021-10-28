@@ -1,38 +1,28 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap');
+body {
+  background-color: #2F1847;
+}
+#card {
+  padding-top: 20px;
   text-align: center;
+  width: 300px;
+  height: 300px;
+  background-color: #624763;
+  border-radius: 20px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#card img {
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#cardsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 700px;
+  margin: auto;
+  grid-row-gap: 20px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+h2 {
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  font-family: 'Zen Antique', serif;
 }
