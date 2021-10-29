@@ -53,6 +53,9 @@ function Cards() {
 			src: "https://image.api.playstation.com/vulcan/ap/rnd/202009/2505/N5vIQXg5NEWmxKLfKQ6GUolC.png"
 		}
 	];
+	const randomize = (e) => {
+		
+	}
 	for (let i = 0; i < cards.length; i++) {
 		cardDivs.push(
 			<div id="card" key={cards[i].name}>
