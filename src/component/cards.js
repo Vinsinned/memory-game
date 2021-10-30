@@ -58,6 +58,7 @@ function Cards() {
 	const randomize = (e) => {
 		while (randomizeCards.length !== 11) {
 			const number = Math.floor(Math.random() * 12);
+			console.log('a');
 		}
 	}
 	for (let i = 0; i < cards.length; i++) {
