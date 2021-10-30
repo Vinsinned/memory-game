@@ -3,6 +3,8 @@ import React from "react";
 
 function Cards() {
 	const cardDivs = [];
+	const [randomizeCards, setRandomizeCards] = useState([]);
+	const [usedNumbers, setUsedNumbers] = useState([]);
 	const cards = [
 		{
 			name: "MineCraft",
@@ -54,11 +56,13 @@ function Cards() {
 		}
 	];
 	const randomize = (e) => {
-		
+		while (randomizeCards.length !== 11) {
+			const number = Math.floor(Math.random() * 12);
+		}
 	}
 	for (let i = 0; i < cards.length; i++) {
 		cardDivs.push(
-			<div id="card" key={cards[i].name}>
+			<div id="card" key={cards[i].name} onClick={randomize}>
 				<img src={cards[i].src} alt=""/>
 				<h2 id="name">{cards[i].name}</h2>
 			</div>
@@ -66,6 +70,7 @@ function Cards() {
 	}
   return (
 		<div id="cardsContainer">
+			{console.log(usedNumbers)}
 			{cardDivs}
     </div>
   );
