@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import React from "react";
 
 function Cards() {
-	const cardDivs = [];
-	const [randomizeCards, setRandomizeCards] = useState([]);
-	const [usedNumbers, setUsedNumbers] = useState([]);
+	let cardDivs = [];
 	const cards = [
 		{
 			name: "MineCraft",
@@ -56,23 +54,43 @@ function Cards() {
 		}
 	];
 	const randomize = (e) => {
-		while (randomizeCards.length !== 11) {
-			const number = Math.floor(Math.random() * 12);
-			console.log('a');
+		const usedNumbers = [];
+		//change setstate hooks
+		cardDivs = [];
+		for (let i = 0; i < cards.length; i++) {
+			let stop = false;
+			while (stop === false) {
+				const number = Math.floor(Math.random() * 12);
+				if (usedNumbers.includes(number) === false) {
+					stop = true;
+					usedNumbers.push(number)
+				} else {
+					continue;
+				}
+			}
 		}
+		for (const number of usedNumbers) {
+			cardDivs.push(
+				<div id="card" key={cards[number].name} onClick={randomize}>
+					<img src={cards[number].src} alt="" />
+					<h2 id="name">{cards[number].name}</h2>
+				</div>
+			)
+		}
+		setRandomizeCards(cardDivs)
 	}
 	for (let i = 0; i < cards.length; i++) {
 		cardDivs.push(
 			<div id="card" key={cards[i].name} onClick={randomize}>
-				<img src={cards[i].src} alt=""/>
+				<img src={cards[i].src} alt="" />
 				<h2 id="name">{cards[i].name}</h2>
 			</div>
 		)
 	}
+	const [randomizeCards, setRandomizeCards] = useState(cardDivs);
   return (
 		<div id="cardsContainer">
-			{console.log(usedNumbers)}
-			{cardDivs}
+			{randomizeCards}
     </div>
   );
 }
