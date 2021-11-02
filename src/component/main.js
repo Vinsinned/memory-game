@@ -2,7 +2,7 @@ import { useState} from "react";
 import React from "react";
 import Scores from "./scores";
 
-function Cards() {
+function Main() {
 	let [score, setScore] = useState(0);
 	let [bestScore, setBestScore] = useState(0);
 	let cardDivs = [];
@@ -131,4 +131,4 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default Main;
