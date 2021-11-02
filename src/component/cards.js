@@ -71,7 +71,7 @@ function Cards() {
 			setBestScore(bestScore = score);
 		}
 		//win function
-		if (score === 1) {
+		if (score === 12) {
 			console.log('winner!');
 			const cards = document.querySelector('#cardsContainer');
 			const score = document.querySelector('#scoreboard');

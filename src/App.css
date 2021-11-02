@@ -21,6 +21,7 @@ body {
   width: 700px;
   margin: auto;
   grid-row-gap: 20px;
+  justify-items: center;
 }
 #scoreboard {
   color: gold;
@@ -49,4 +50,23 @@ body {
 h2 {
   color: white;
   font-family: 'Zen Antique', serif;
+}
+
+@media (min-width:1025px) {
+  #cardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: auto;
+    margin: auto;
+    justify-items: center;
+  }
+}
+@media (min-width:1281px) {
+  #cardsContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: auto;
+    margin: auto;
+    justify-items: center;
+  }
 }
