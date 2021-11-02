@@ -1,8 +1,12 @@
 import { useState} from "react";
 import React from "react";
+import Scores from "./scores";
 
 function Cards() {
+	let [score, setScore] = useState(0);
+	let [bestScore, setBestScore] = useState(0);
 	let cardDivs = [];
+	let selectedGames = [];
 	const cards = [
 		{
 			name: "MineCraft",
@@ -53,9 +57,21 @@ function Cards() {
 			src: "https://image.api.playstation.com/vulcan/ap/rnd/202009/2505/N5vIQXg5NEWmxKLfKQ6GUolC.png"
 		}
 	];
-	const randomize = (e) => {
+	const clicked = (e) => {
+		//scores function
+		const game = e.currentTarget.textContent;
+		if (selectedGames.includes(game) === false) {
+			setScore(score += 1)
+			selectedGames.push(game)
+		} else {
+			setScore(score = 0);
+			selectedGames = [];
+		}
+		if (score >= bestScore) {
+			setBestScore(bestScore = score);
+		}
 		const usedNumbers = [];
-		//change setstate hooks
+		//randomize function
 		cardDivs = [];
 		for (let i = 0; i < cards.length; i++) {
 			let stop = false;
@@ -71,7 +87,7 @@ function Cards() {
 		}
 		for (const number of usedNumbers) {
 			cardDivs.push(
-				<div id="card" key={cards[number].name} onClick={randomize}>
+				<div id="card" key={cards[number].name} onClick={clicked}>
 					<img src={cards[number].src} alt="" />
 					<h2 id="name">{cards[number].name}</h2>
 				</div>
@@ -81,7 +97,7 @@ function Cards() {
 	}
 	for (let i = 0; i < cards.length; i++) {
 		cardDivs.push(
-			<div id="card" key={cards[i].name} onClick={randomize}>
+			<div id="card" key={cards[i].name} onClick={clicked}>
 				<img src={cards[i].src} alt="" />
 				<h2 id="name">{cards[i].name}</h2>
 			</div>
@@ -89,8 +105,13 @@ function Cards() {
 	}
 	const [randomizeCards, setRandomizeCards] = useState(cardDivs);
   return (
-		<div id="cardsContainer">
-			{randomizeCards}
+		<div>
+			<div id="scoreboard">
+				<Scores score={score} bestScore={bestScore}/>
+			</div>
+			<div id="cardsContainer">
+				{randomizeCards}
+			</div>
     </div>
   );
 }

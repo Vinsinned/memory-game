@@ -22,6 +22,11 @@ body {
   margin: auto;
   grid-row-gap: 20px;
 }
+#scoreboard {
+  color: gold;
+  text-align: end;
+  padding-left: 20px;
+}
 h2 {
   color: white;
   font-family: 'Zen Antique', serif;
