@@ -70,8 +70,20 @@ function Cards() {
 		if (score >= bestScore) {
 			setBestScore(bestScore = score);
 		}
-		const usedNumbers = [];
+		//win function
+		if (score === 1) {
+			console.log('winner!');
+			const cards = document.querySelector('#cardsContainer');
+			const score = document.querySelector('#scoreboard');
+			const winDisplay = document.querySelector('#winDisplay');
+			console.log(winDisplay.className)
+			winDisplay.classList.remove('hide')
+			cards.innerHTML = '';
+			score.innerHTML = '';
+			return;
+		}
 		//randomize function
+		const usedNumbers = [];
 		cardDivs = [];
 		for (let i = 0; i < cards.length; i++) {
 			let stop = false;
@@ -106,6 +118,9 @@ function Cards() {
 	const [randomizeCards, setRandomizeCards] = useState(cardDivs);
   return (
 		<div>
+			<div id="winDisplay" className="hide">
+				<p>You Win!</p>
+			</div>
 			<div id="scoreboard">
 				<Scores score={score} bestScore={bestScore}/>
 			</div>

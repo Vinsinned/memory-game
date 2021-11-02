@@ -27,6 +27,25 @@ body {
   text-align: end;
   padding-left: 20px;
 }
+#winDisplay {
+  text-align: center;
+  background-color: #624763;
+  color: gold;
+  width: 500px;
+  font-family: 'Zen Antique', serif;
+  font-size: 80px;
+  position: absolute;
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  display: table-cell;
+  vertical-align: center;
+  top: 200px;;
+}
+.hide {
+  visibility: hidden;
+}
 h2 {
   color: white;
   font-family: 'Zen Antique', serif;
